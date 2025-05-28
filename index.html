@@ -3,198 +3,417 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Saikat Majumder - Personal Website</title>
+    <title>Saikat Majumder - Sr. Process Executive</title>
     <style>
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
-        
+
         body {
-            font-family: 'Arial', sans-serif;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             line-height: 1.6;
             color: #333;
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             min-height: 100vh;
         }
-        
+
         .container {
-            max-width: 800px;
+            max-width: 1200px;
             margin: 0 auto;
             padding: 20px;
         }
-        
-        .card {
+
+        .header {
             background: rgba(255, 255, 255, 0.95);
-            border-radius: 15px;
-            padding: 40px;
-            margin: 20px 0;
-            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
             backdrop-filter: blur(10px);
-        }
-        
-        .profile-section {
+            border-radius: 20px;
+            padding: 40px;
             text-align: center;
             margin-bottom: 30px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
         }
-        
+
         .profile-img {
             width: 150px;
             height: 150px;
             border-radius: 50%;
+            background: linear-gradient(135deg, #667eea, #764ba2);
             margin: 0 auto 20px;
-            background: linear-gradient(45deg, #667eea, #764ba2);
             display: flex;
             align-items: center;
             justify-content: center;
-            color: white;
             font-size: 48px;
+            color: white;
             font-weight: bold;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
         }
-        
-        h1 {
-            color: #2c3e50;
-            margin-bottom: 10px;
+
+        .header h1 {
             font-size: 2.5em;
+            margin-bottom: 10px;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
         }
-        
-        .tagline {
-            color: #7f8c8d;
-            font-size: 1.2em;
+
+        .header h2 {
+            color: #666;
+            font-weight: 300;
             margin-bottom: 20px;
         }
-        
-        h2 {
-            color: #34495e;
-            margin-bottom: 15px;
-            border-bottom: 2px solid #667eea;
-            padding-bottom: 5px;
+
+        .contact-info {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            flex-wrap: wrap;
+            margin-top: 20px;
         }
-        
-        .section {
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            color: #555;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .contact-item:hover {
+            color: #667eea;
+            transform: translateY(-2px);
+        }
+
+        .main-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
             margin-bottom: 30px;
         }
-        
-        .skills {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 10px;
-            margin-top: 15px;
+
+        .card {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 30px;
+            border-radius: 20px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            transition: all 0.3s ease;
         }
-        
-        .skill-tag {
-            background: linear-gradient(45deg, #667eea, #764ba2);
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.15);
+        }
+
+        .full-width {
+            grid-column: 1 / -1;
+        }
+
+        .card h3 {
+            font-size: 1.5em;
+            margin-bottom: 20px;
+            color: #333;
+            border-bottom: 3px solid #667eea;
+            padding-bottom: 10px;
+        }
+
+        .experience-item {
+            margin-bottom: 25px;
+            padding: 20px;
+            background: linear-gradient(135deg, #f8f9ff, #e8f0ff);
+            border-radius: 15px;
+            border-left: 4px solid #667eea;
+        }
+
+        .experience-item h4 {
+            color: #667eea;
+            margin-bottom: 5px;
+        }
+
+        .company {
+            font-weight: bold;
+            color: #333;
+        }
+
+        .duration {
+            color: #666;
+            font-style: italic;
+            margin-bottom: 10px;
+        }
+
+        .experience-item ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .experience-item li {
+            margin-bottom: 8px;
+            padding-left: 20px;
+            position: relative;
+        }
+
+        .experience-item li:before {
+            content: "▸";
+            color: #667eea;
+            position: absolute;
+            left: 0;
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+        }
+
+        .skill-item {
+            background: linear-gradient(135deg, #667eea, #764ba2);
             color: white;
-            padding: 8px 16px;
-            border-radius: 25px;
-            font-size: 0.9em;
+            padding: 15px;
+            border-radius: 10px;
+            text-align: center;
+            font-weight: 500;
+            transition: all 0.3s ease;
         }
-        
-        .contact-links {
+
+        .skill-item:hover {
+            transform: scale(1.05);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .awards-grid {
+            display: grid;
+            gap: 15px;
+        }
+
+        .award-item {
+            background: linear-gradient(135deg, #ffd89b, #19547b);
+            color: white;
+            padding: 20px;
+            border-radius: 15px;
+            text-align: center;
+            font-weight: 500;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .summary {
+            font-size: 1.1em;
+            line-height: 1.8;
+            color: #555;
+            text-align: justify;
+        }
+
+        .education-item {
+            background: linear-gradient(135deg, #a8edea, #fed6e3);
+            padding: 25px;
+            border-radius: 15px;
+            text-align: center;
+        }
+
+        .education-item h4 {
+            color: #333;
+            margin-bottom: 10px;
+        }
+
+        .languages {
             display: flex;
             justify-content: center;
             gap: 20px;
-            margin-top: 20px;
+            flex-wrap: wrap;
         }
-        
-        .contact-btn {
-            background: linear-gradient(45deg, #667eea, #764ba2);
+
+        .language-item {
+            background: linear-gradient(135deg, #667eea, #764ba2);
             color: white;
-            text-decoration: none;
-            padding: 12px 24px;
+            padding: 10px 20px;
             border-radius: 25px;
-            transition: transform 0.3s ease;
+            font-weight: 500;
         }
-        
-        .contact-btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
-        }
-        
-        .project {
-            background: #f8f9fa;
-            padding: 20px;
-            border-radius: 10px;
-            margin-bottom: 15px;
-            border-left: 4px solid #667eea;
-        }
-        
-        .project h3 {
-            color: #2c3e50;
-            margin-bottom: 8px;
-        }
-        
-        @media (max-width: 600px) {
-            .container {
-                padding: 10px;
+
+        @media (max-width: 768px) {
+            .main-content {
+                grid-template-columns: 1fr;
             }
             
-            .card {
-                padding: 20px;
+            .contact-info {
+                flex-direction: column;
+                align-items: center;
+                gap: 15px;
             }
             
-            h1 {
+            .header h1 {
                 font-size: 2em;
             }
             
-            .contact-links {
-                flex-direction: column;
-                align-items: center;
+            .skills-grid {
+                grid-template-columns: 1fr;
             }
+        }
+
+        .floating-animation {
+            animation: float 6s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <div class="card">
-            <div class="profile-section">
-                <div class="profile-img">SM</div>
-                <h1>Saikat Majumder</h1>
-                <p class="tagline">Web Developer | Designer | Creative Thinker</p>
-            </div>
-            
-            <div class="section">
-                <h2>About Me</h2>
-                <p>Hello! I'm a passionate individual with interests in technology, creativity, and problem-solving. I love learning new things and sharing my knowledge with others. Welcome to my personal space on the web!</p>
-            </div>
-            
-            <div class="section">
-                <h2>Skills</h2>
-                <div class="skills">
-                    <span class="skill-tag">Web Development</span>
-                    <span class="skill-tag">Design</span>
-                    <span class="skill-tag">Photography</span>
-                    <span class="skill-tag">Writing</span>
-                    <span class="skill-tag">Problem Solving</span>
+        <header class="header floating-animation">
+            <div class="profile-img">SM</div>
+            <h1>Saikat Majumder</h1>
+            <h2>Senior Process Executive</h2>
+            <div class="contact-info">
+                <a href="mailto:Saikat4.work@gmail.com" class="contact-item">
+                    <span>📧</span> Saikat4.work@gmail.com
+                </a>
+                <a href="tel:+919699376722" class="contact-item">
+                    <span>📱</span> +91 9699376722
+                </a>
+                <a href="https://linkedin.com/in/saikat99" class="contact-item" target="_blank">
+                    <span>💼</span> linkedin.com/in/saikat99
+                </a>
+                <div class="contact-item">
+                    <span>📍</span> New Sangvi, Pimpri Chinchwad, Pune – 411061
                 </div>
             </div>
-            
-            <div class="section">
-                <h2>Projects</h2>
-                <div class="project">
-                    <h3>Project One</h3>
-                    <p>Description of your first project. What did you build? What technologies did you use? What problem did it solve?</p>
-                </div>
-                <div class="project">
-                    <h3>Project Two</h3>
-                    <p>Description of your second project. This could be anything from a creative work to a technical solution.</p>
-                </div>
-                <div class="project">
-                    <h3>Project Three</h3>
-                    <p>Description of your third project. Show off your diverse interests and capabilities!</p>
+        </header>
+
+        <div class="main-content">
+            <div class="card full-width">
+                <h3>Professional Summary</h3>
+                <div class="summary">
+                    Customer Service and Operations Professional with 3+ years of hands-on experience in order processing, client communication, and SLA compliance. Proven track record of maintaining high customer satisfaction, streamlining workflow, and collaborating across teams to ensure timely and accurate service delivery. Recognized with multiple awards for performance excellence and process ownership.
                 </div>
             </div>
-            
-            <div class="section">
-                <h2>Get In Touch</h2>
-                <div class="contact-links">
-                    <a href="itzzsailkat289@gmail.com" class="contact-btn">Email Me</a>
-                    <a href="https://linkedin.com/in/saikat99" class="contact-btn">LinkedIn</a>
-                    <a href="https://github.com/Saikatmajumder" class="contact-btn">GitHub</a>
+
+            <div class="card full-width">
+                <h3>Professional Experience</h3>
+                <div class="experience-item">
+                    <div class="company">ACTIOHX SOLUTIONS PVT. LTD. – PUNE</div>
+                    <h4>SENIOR PROCESS EXECUTIVE</h4>
+                    <div class="duration">Apr 2024 – Present</div>
+                    <ul>
+                        <li>Manage end-to-end customer order processing and fulfillment</li>
+                        <li>Address inquiries via email/chat, ensuring timely and accurate information</li>
+                        <li>Maintain and update order records and shipment tracking logs</li>
+                        <li>Support logistics coordination for timely deliveries and inventory updates</li>
+                        <li>Provide training and assistance to new team members</li>
+                    </ul>
+                </div>
+                <div class="experience-item">
+                    <h4>PROCESS EXECUTIVE</h4>
+                    <div class="duration">Jan 2022 – Mar 2024</div>
+                    <ul>
+                        <li>Processed customer orders based on specifications, ensuring SLA adherence</li>
+                        <li>Handled customer issues and resolved them promptly via email</li>
+                        <li>Generated regular project reports for progress tracking and decision-making</li>
+                        <li>Collaborated with internal teams to streamline operations</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="card">
+                <h3>Core Skills</h3>
+                <div class="skills-grid">
+                    <div class="skill-item">Customer Support</div>
+                    <div class="skill-item">Order Management</div>
+                    <div class="skill-item">Supply Chain Management</div>
+                    <div class="skill-item">Process Improvement</div>
+                    <div class="skill-item">SLA Compliance</div>
+                    <div class="skill-item">Inventory Coordination</div>
+                    <div class="skill-item">Microsoft Office Suite</div>
+                    <div class="skill-item">CRM Tools</div>
+                    <div class="skill-item">Team Collaboration</div>
+                    <div class="skill-item">Problem Solving</div>
+                    <div class="skill-item">Operational Excellence</div>
+                    <div class="skill-item">Reporting & Analysis</div>
+                </div>
+            </div>
+
+            <div class="card">
+                <h3>Awards & Achievements</h3>
+                <div class="awards-grid">
+                    <div class="award-item">
+                        🏆 Spotlight Award (x3)<br>
+                        <small>For process excellence</small>
+                    </div>
+                    <div class="award-item">
+                        🎯 RNR Award<br>
+                        <small>For consistently exceeding SLA benchmarks</small>
+                    </div>
+                    <div class="award-item">
+                        👏 Appreciation Awards (x2)<br>
+                        <small>For maintaining customer satisfaction and order accuracy</small>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <h3>Education</h3>
+                <div class="education-item">
+                    <h4>B.Tech – Electronics & Communication Engineering</h4>
+                    <div><strong>Brainware Group of Institutions</strong></div>
+                    <div>Kolkata, India</div>
+                    <div>CGPA: 7.81/10 | Graduated: 2021</div>
+                </div>
+            </div>
+
+            <div class="card">
+                <h3>Languages</h3>
+                <div class="languages">
+                    <div class="language-item">English</div>
+                    <div class="language-item">Bengali</div>
+                    <div class="language-item">Hindi</div>
                 </div>
             </div>
         </div>
     </div>
+
+    <script>
+        // Add smooth scrolling and interactive effects
+        document.addEventListener('DOMContentLoaded', function() {
+            // Add hover effects to cards
+            const cards = document.querySelectorAll('.card');
+            cards.forEach(card => {
+                card.addEventListener('mouseenter', function() {
+                    this.style.transform = 'translateY(-5px) scale(1.02)';
+                });
+                
+                card.addEventListener('mouseleave', function() {
+                    this.style.transform = 'translateY(0) scale(1)';
+                });
+            });
+
+            // Add click animation to skills
+            const skills = document.querySelectorAll('.skill-item');
+            skills.forEach(skill => {
+                skill.addEventListener('click', function() {
+                    this.style.animation = 'pulse 0.5s ease-in-out';
+                    setTimeout(() => {
+                        this.style.animation = '';
+                    }, 500);
+                });
+            });
+        });
+
+        // Add pulse animation
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes pulse {
+                0% { transform: scale(1); }
+                50% { transform: scale(1.1); }
+                100% { transform: scale(1); }
+            }
+        `;
+        document.head.appendChild(style);
+    </script>
 </body>
 </html>
