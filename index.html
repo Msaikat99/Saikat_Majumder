@@ -40,15 +40,17 @@
             width: 150px;
             height: 150px;
             border-radius: 50%;
-            background: linear-gradient(135deg, #667eea, #764ba2);
             margin: 0 auto 20px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 48px;
-            color: white;
-            font-weight: bold;
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            overflow: hidden;
+            border: 4px solid #667eea;
+        }
+
+        .profile-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
         }
 
         .header h1 {
@@ -268,7 +270,7 @@
     <div class="container">
         <header class="header floating-animation">
             <div class="profile-img">
-                <img id="profileImage" alt="SM" />
+                <img id="profileImage" alt="Saikat Majumder" />
             </div>
             <h1>Saikat Majumder</h1>
             <h2>SME - Operations </h2>
@@ -386,8 +388,26 @@
     </div>
 
     <script>
+        // Load the uploaded image
+        async function loadProfileImage() {
+            try {
+                const imageData = await window.fs.readFile('image.jpg');
+                const blob = new Blob([imageData], { type: 'image/jpeg' });
+                const imageUrl = URL.createObjectURL(blob);
+                document.getElementById('profileImage').src = imageUrl;
+            } catch (error) {
+                console.log('Could not load image, using fallback');
+                // Fallback to initials if image can't be loaded
+                const profileDiv = document.querySelector('.profile-img');
+                profileDiv.innerHTML = '<div style="width: 100%; height: 100%; background: linear-gradient(135deg, #667eea, #764ba2); display: flex; align-items: center; justify-content: center; font-size: 48px; color: white; font-weight: bold; border-radius: 50%;">SM</div>';
+            }
+        }
+
         // Add smooth scrolling and interactive effects
         document.addEventListener('DOMContentLoaded', function() {
+            // Load profile image
+            loadProfileImage();
+
             // Add hover effects to cards
             const cards = document.querySelectorAll('.card');
             cards.forEach(card => {
